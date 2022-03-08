@@ -1,11 +1,22 @@
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-// find odd,even, prime
+// Filter out odd, even, and prime numbers and print them
 
-let evenElements = array.filter((num) =>  num % 2 === 0);
-let oddElements = array.filter((num) =>  num % 2 !== 0);
+let evenElements = [];
+for(let num of array) {
+    if(num % 2 === 0) evenElements.push(num);
+}
+
+let oddElements = [];
+for(let num of array) {
+    if(num % 2 === 0) oddElements.push(num);
+}
+
+for(let num of array) {
+    if(num % 2 === 0) evenElements.push(num);
+}
+
 let primeElements = [];
-
 while(array.length) {
     let currentElement = array.pop();
     for(let i = 2; i < currentElement; i++) {
@@ -17,4 +28,3 @@ while(array.length) {
 console.log(evenElements);
 console.log(oddElements);
 console.log(primeElements);
-
