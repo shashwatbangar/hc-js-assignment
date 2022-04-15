@@ -1,43 +1,41 @@
+<template>
+    <div class="container">
+        <NavBar />
+        <NavBarCat @click="isShow = !isShow" />
+        <Home v-if="isShow" />
+        <Footer class="footer" />
+    </div>
+</template>
+
 <script>
-import NavBar from './components/NavBar.vue';
-import ImgSliderCarousel from './components/ImgSliderCarousel.vue'
-import NavBarCat from './components/NavBarCat.vue';
-import ItemsCard from './components/ItemsCard.vue';
-import ItemsList from './components/ItemsList.vue';
-import Footer from './components/Footer.vue';
+import Home from "./components/Home.vue"
+import NavBarCat from "./components/NavBarCat.vue"
+import NavBar from "./components/NavBar.vue"
+import Footer from "./components/Footer.vue"
 
 export default {
     name: 'App',
 
     components: {
-      NavBar,
-      NavBarCat,
-      ImgSliderCarousel,
-      ItemsCard,
-      ItemsList,
-      Footer,
+        NavBar,
+        NavBarCat,
+        Home,
+        Footer,
+    },
+
+    data() {
+        return {
+            isShow: true,
+        }
     }
 }
 
 </script>
 
-<template>
-    <div id="home-parent">
-      <NavBar />
-      <NavBarCat />
-      <ImgSliderCarousel />
-      <ItemsCard />
-      <ItemsList />
-      <Footer />
-    </div>
-</template>
-
 <style scoped>
-  #home-parent {
-    display: flex;
-    flex-direction: column;
-    background: #d3d3d3;
-    /* text-align: center; */
-  }
+    .footer {
+        position: relative;
+        bottom: 0;
+    }
 </style>
    
