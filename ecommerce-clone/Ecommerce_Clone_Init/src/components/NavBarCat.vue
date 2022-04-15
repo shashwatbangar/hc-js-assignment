@@ -33,7 +33,7 @@
 
 <script>
 export default {
-    name: 'NavBarCat'
+    name: 'NavBarCat',
 }
 </script>
 
