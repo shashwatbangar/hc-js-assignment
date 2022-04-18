@@ -1,14 +1,13 @@
 <template>
     <div class="container">
-        <div class="categories">
-
-        </div>
+        <h1>Product Details</h1>
+        <p>Here</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Categories',
+    name: 'ProductDetail'
 }
 </script>
 

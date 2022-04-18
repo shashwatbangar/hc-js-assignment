@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <NavBar />
-        <NavBarCat @click="isShow = !isShow" />
-        <Home v-if="isShow" />
+        <NavBarCat />
+        <Home />
         <Footer class="footer" />
     </div>
 </template>
@@ -22,12 +22,6 @@ export default {
         Home,
         Footer,
     },
-
-    data() {
-        return {
-            isShow: true,
-        }
-    }
 }
 
 </script>
