@@ -1,9 +1,38 @@
+<template>
+  <div id="home-parent" v-show="$route.name !== 'ProductDetail'">
+
+    <ImgSliderCarousel class="space" />
+
+    <div class="cat-btns-grp">
+      <Button :filterCategories="filterCategories" />
+    </div>
+
+    <div :posts="posts" class="all">
+      <div v-for="post in posts" :key="post.id" class="cat">
+        <h1>{{ post.category }}</h1>
+        <div class="row">
+          <div class="card col-md-3 col-6 my-1 align">
+            <img class="card-img-top" :src="post.image" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.description }}</p>
+              <span class="card-text">{{ post.price }}</span>
+              <a @click="productDetails(post.id)" class="btn btn-primary">Buy-now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-view :data="posts" />
+</template>
+
 <script>
 import ImgSliderCarousel from "./ImgSliderCarousel.vue";
 import Button from "./Button.vue";
 
 export default {
-  name: "Home",
+  name: 'Home',
 
   components: {
     ImgSliderCarousel,
@@ -14,7 +43,7 @@ export default {
     return {
       posts: [],
       allCategories: [],
-    };
+    }
   },
 
   methods: {
@@ -37,6 +66,13 @@ export default {
         });
       }
     },
+
+    productDetails(productId) {
+      this.$router.push({
+        name: 'ProductDetail',
+        params: {productId}
+      })
+    }
   },
 
   created() {
@@ -45,33 +81,6 @@ export default {
 };
 </script>
 
-<template>
-  <div id="home-parent">
-
-    <ImgSliderCarousel class="space" />
-
-    <div class="cat-btns-grp">
-      <Button :filterCategories="filterCategories" />
-    </div>
-
-    <div :posts="posts" class="all">
-      <div v-for="post in posts" :key="post" class="cat">
-        <h1>{{ post.category }}</h1>
-        <div class="row">
-          <div class="card col-md-3 col-6 my-1 align">
-            <img class="card-img-top" :src="post.image" alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text">{{ post.description }}</p>
-              <a href="#" class="btn btn-primary">Buy-now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</template>
 
 <style scoped>
 #home-parent {

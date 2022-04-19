@@ -22,7 +22,6 @@ export default {
 
     props: {
         'filterCategories': Array,
-        'text': String,
     },
 
     data() {
