@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "mitt": "^3.0.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
