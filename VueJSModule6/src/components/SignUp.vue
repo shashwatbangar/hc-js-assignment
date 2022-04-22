@@ -37,9 +37,9 @@
 
 <script>
 import axios from 'axios';
-import setAuthHeaders from '../utils/setAuthHeaders';
 export default {
   data() {
+    
     return {
       email: this.email,
       username: this.username,
@@ -59,6 +59,8 @@ export default {
         },
       },
       phone: "1-570-236-7033",
+
+      
     };
   },
 
@@ -96,7 +98,7 @@ export default {
           preventCorsError
         )
         .then((res) => {
-          localStorage.token = JSON.stringify(res.data.token);
+          localStorage.token = res.data.token;
 
           this.$router.push("/");
         })
@@ -104,6 +106,8 @@ export default {
           alert(err);
         });
     },
+
+   
   },
 };
 </script>
